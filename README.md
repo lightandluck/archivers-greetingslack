@@ -8,7 +8,7 @@ If you like this project and you use it for your community or anything else, ple
 
 This fork was created for the following reasons:
 
-  * Use a hardcoded welcome message in code, as opposed to an
+  * Use a hardcoded [`WELCOME_MESSAGE.txt`](WELCOME_MESSAGE.txt) in code, as opposed to an
     environment variable.
   * Add the python `logging` module.
   * Bump the `websocket-client` package version to avoid a bug.
