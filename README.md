@@ -15,6 +15,9 @@ This fork was created for the following reasons:
   * Add the ability to debug via a special channel that sends
     welcome message when joined.
 
+**Important:** This branch, `develop/archivers`, auto-deploys to Heroku.
+We recommend submitting changes to this branch via pull request.
+
 # Requirements
 Python 2.7+
 Edit `bot.py` on lines 7-8 to customise with your greeting and token
