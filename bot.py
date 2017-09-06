@@ -46,8 +46,7 @@ def parse_join(message):
                 'channel': x,
                 'text': welcome_message(),
                 'parse': 'full',
-                'as_user': 'false',
-                'username': 'Auto-Greeter',
+                'as_user': 'true',
                 }
 
         logging.debug(data)
