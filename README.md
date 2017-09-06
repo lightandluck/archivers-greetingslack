@@ -4,6 +4,17 @@ Usually this is used to tell new joiners about the network, the guidelines, rule
 
 If you like this project and you use it for your community or anything else, please hit the STAR button ⭐️ on the top right side so I know you dig it! It makes me feel appreciated and it's free.
 
+## About this Fork
+
+This fork was created for the following reasons:
+
+  * Use a hardcoded welcome message in code, as opposed to an
+    environment variable.
+  * Add the python `logging` module.
+  * Bump the `websocket-client` package version to avoid a bug.
+  * Add the ability to debug via a special channel that sends
+    welcome message when joined.
+
 # Requirements
 Python 2.7+
 Edit `bot.py` on lines 7-8 to customise with your greeting and token
