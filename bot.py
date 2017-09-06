@@ -15,8 +15,8 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 ###VARIABLES THAT YOU NEED TO SET MANUALLY IF NOT ON HEROKU#####
 try:
-        TOKEN = os.environ['SLACK-TOKEN']
-        UNFURL = os.environ['UNFURL-LINKS']
+        TOKEN = os.environ['SLACK_TOKEN']
+        UNFURL = os.environ['UNFURL_LINKS']
         DEBUG_CHANNEL_ID = os.environ.get('DEBUG_CHANNEL_ID', False)
 except:
         TOKEN = 'Manually set the API Token if youre not running through heroku or have not set vars in ENV'
