@@ -3,7 +3,10 @@ import json
 import requests
 import urllib
 import os
+import logging
 
+logging.basicConfig(level=logging.DEBUG,
+        stream=sys.stdout)
 
 # Suppress InsecureRequestWarning
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
@@ -30,19 +33,24 @@ def parse_join(message):
     m = json.loads(message)
     if is_team_join(m) or is_debug_channel_join(m):
         x = requests.get("https://slack.com/api/im.open?token="+TOKEN+"&user="+m["user"]["id"])
+        print(x)
         x = x.json()
+        print(x)
         x = x["channel"]["id"]
+        print(x)
         if (UNFURL.lower() == "false"):
           xx = requests.post("https://slack.com/api/chat.postMessage?token="+TOKEN+"&channel="+x+"&text="+urllib.quote(MESSAGE)+"&parse=full&as_user=true&unfurl_links=false")
+          print(xx)
         else:
           xx = requests.post("https://slack.com/api/chat.postMessage?token="+TOKEN+"&channel="+x+"&text="+urllib.quote(MESSAGE)+"&parse=full&as_user=true")
-        # DEBUG
-        print '\033[91m' + "HELLO SENT" + m["user"]["id"] + '\033[0m'
+          print(xx)
+        logging.debug('\033[91m' + "HELLO SENT" + m["user"]["id"] + '\033[0m')
 
 #Connects to Slacks and initiates socket handshake
 def start_rtm():
     r = requests.get("https://slack.com/api/rtm.start?token="+TOKEN, verify=False)
     r = r.json()
+    logging.debug(r)
     r = r["url"]
     return r
 
@@ -50,13 +58,13 @@ def on_message(ws, message):
     parse_join(message)
 
 def on_error(ws, error):
-    print "SOME ERROR HAS HAPPENED", error
+    logging.error("SOME ERROR HAS HAPPENED:" + error)
 
 def on_close(ws):
-    print '\033[91m'+"Connection Closed"+'\033[0m'
+    logging.info('\033[91m'+"Connection Closed"+'\033[0m')
 
 def on_open(ws):
-    print "Connection Started - Auto Greeting new joiners to the network"
+    logging.info("Connection Started - Auto Greeting new joiners to the network")
 
 
 if __name__ == "__main__":
