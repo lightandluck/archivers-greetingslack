@@ -55,7 +55,7 @@ def parse_join(message):
           data = data.update({'unfurl_link': 'false'})
 
         xx = requests.post("https://slack.com/api/chat.postMessage", data=data)
-        logging.debug('\033[91m' + "HELLO SENT" + user_id + '\033[0m')
+        logging.debug('\033[91m' + "HELLO SENT TO " + user_id + '\033[0m')
 
 #Connects to Slacks and initiates socket handshake
 def start_rtm():
