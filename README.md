@@ -19,6 +19,11 @@ pip install websocket-client
 python bot.py &
 ```
 
+# Debugging
+
+If you create a channel named `#greetingslack`, then the bot will send
+you a message every time you join it.
+
 # Heroku
 Deploy with a click supported now
 

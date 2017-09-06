@@ -20,9 +20,15 @@ except:
         UNFURL = 'FALSE'
 ###############################################################
 
+def is_team_join(msg):
+    return msg['type'] == "team_join"
+
+def is_debug_channel_join(msg):
+    return msg['type'] == "channel_joined" and msg['channel']['name'] == 'greetingslack'
+
 def parse_join(message):
     m = json.loads(message)
-    if (m['type'] == "team_join"):
+    if is_team_join(m) or is_debug_channel_join(m):
         x = requests.get("https://slack.com/api/im.open?token="+TOKEN+"&user="+m["user"]["id"])
         x = x.json()
         x = x["channel"]["id"]
