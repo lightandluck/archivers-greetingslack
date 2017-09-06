@@ -15,8 +15,13 @@ This fork was created for the following reasons:
   * Add the ability to debug via a special channel that sends
     welcome message when joined.
 
-**Important:** This branch, `develop/archivers`, auto-deploys to Heroku.
-We recommend submitting changes to this branch via pull request.
+**Notes:**
+
+  * This branch, `develop/archivers`, **auto-deploys to Heroku**. We
+    recommend submitting changes to this branch via pull request.
+  * We use a [**bot user**](https://api.slack.com/bot-users), in fact, [this
+    little guy](https://archivers.slack.com/services/238329276295)
+    (sign-in required).
 
 # Requirements
 Python 2.7+
